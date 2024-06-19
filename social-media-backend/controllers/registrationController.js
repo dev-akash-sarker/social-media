@@ -6,6 +6,8 @@ const {
 } = require("../helper/validation");
 const bcrypt = require("bcrypt");
 const Users = require("../models/userModel");
+const { jwToken } = require("../helper/token");
+const { sendVerifedEmail } = require("../helper/mailer");
 
 const registrationController = async (req, res) => {
   try {
@@ -76,7 +78,21 @@ const registrationController = async (req, res) => {
       gender: gender,
       verified: verified,
     }).save();
-    res.send(User);
+
+    const emailToken = jwToken({ id: User._id.toString() }, "30m");
+    const url = `${process.env.BASE_URL}/activate/${emailToken}`;
+    sendVerifedEmail(User.email, User.fName + User.lName, url);
+    const token = jwToken({ id: User._id.toString() }, "7d");
+    res.send({
+      id: User._id,
+      usernme: User.uName,
+      profilePicture: User.profilePicture,
+      fName: User.fName,
+      lName: User.lName,
+      token: token,
+      verified: User.verified,
+      message: "Registration success! Please activate your email",
+    });
   } catch (err) {
     res.status(404).json({
       message: "Can not create user",
