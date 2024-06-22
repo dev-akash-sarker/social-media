@@ -1,3 +1,58 @@
+/* tailwind config */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* root css */
+
+:root {
+  --main_bg: #ffe9d0;
+  --page_color: #fffed3;
+  --input_color: #bbe9ff;
+  --line_color: #f0f2f5;
+  --primary_bg: #667171;
+  --button-color: #b1afff;
+  --primary-color: #b1afff;
+  --black: #000;
+  --white: #fff;
+  --purple-color: #d4afff;
+  --text_color: #5a639c;
+  --red: #ff1c1c;
+}
+
+/* initial fonts */
+@font-face {
+  font-family: "Gilroy regular";
+  src: url(/src/assets/fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Gilroy medium";
+  src: url(/src/assets/fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Gilroy bold";
+  src: url(/src/assets/fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Gilroy light";
+  src: url(/src/assets/fonts/Gilroy-Light.ttf);
+}
+
+@font-face {
+  font-family: "Gilroy semibold";
+  src: url(/src/assets/fonts/Gilroy-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Gilroy extrabold";
+  src: url(/src/assets/fonts/Gilroy-ExtraBold.ttf);
+}
+
+.custom-placeholder-color::placeholder {
+  color: red !important;
+  opacity: 1; /* Firefox */
+}
