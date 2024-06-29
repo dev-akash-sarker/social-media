@@ -1,6 +1,6 @@
 Hello this is an full stack social media project and there are some feature you might be aware of and this project is on development process.
 
-<h1><b>User Authenticaion<</b>/h1>
+<h1><b>User Authenticaion</b>/h1>
 <ul>
   <li>User can create an account.</li>
   <li>User can login his/her account </li>
